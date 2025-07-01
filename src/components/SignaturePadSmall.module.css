@@ -1,0 +1,30 @@
+.signaturePad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.sigCanvas {
+  border: 2px solid #2e86de;
+  border-radius: 8px;
+  background: #fff;
+  touch-action: none;
+}
+.signaturePadActions {
+  margin-top: 0.3rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.signaturePadActions button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.signaturePadActions button:hover {
+  background: #c0392b;
+}

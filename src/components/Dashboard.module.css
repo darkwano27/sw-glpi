@@ -1,0 +1,122 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 1rem;
+}
+.header button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.searchForm {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.searchForm input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.searchForm button {
+  background: #2e86de;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.error {
+  color: #e74c3c;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.userInfo {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+.activosSection {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  margin-bottom: 1rem;
+}
+.activosList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+.activosList li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.comentario {
+  color: #888;
+  font-size: 0.95rem;
+}
+.firmaSection {
+  margin: 1rem 0;
+}
+.emailSection {
+  margin-bottom: 1rem;
+}
+.emailSection input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+.actions button {
+  background: #2e86de;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.actions button:hover {
+  background: #1456a0;
+}
+.firmaPreviewBox {
+  margin: 1rem 0;
+  text-align: center;
+}
+.firmaPreview {
+  display: inline-block;
+  margin-top: 0.5rem;
+  max-width: 180px;
+  max-height: 60px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fafafa;
+}
+@media (max-width: 600px) {
+  .header, .searchForm, .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+}
