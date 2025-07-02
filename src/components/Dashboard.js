@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Dashboard.module.css';
 import SignaturePad from './SignaturePad';
 import MobileContainer from './MobileContainer';
+import { apiRequest } from '../config/api';
 
 function Dashboard({ user, onLogout }) {
   const [search, setSearch] = useState('');
@@ -19,7 +20,7 @@ function Dashboard({ user, onLogout }) {
     const fetchFirma = async () => {
       if (user && user.id) {
         try {
-          const res = await fetch(`/api/firma/${user.id}`);
+          const res = await apiRequest(`/firma/${user.id}`);
           const data = await res.json();
           if (res.ok && data.signature_base64) setFirmaTecnico(data.signature_base64);
           else setFirmaTecnico('');
@@ -38,13 +39,15 @@ function Dashboard({ user, onLogout }) {
     setActivos([]);
     setGlpiUser(null);
     try {
-      const res = await fetch(`/api/activos?search=${encodeURIComponent(search)}`);
+      const res = await apiRequest(`/activos?search=${encodeURIComponent(search)}`);
+      
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Error consultando activos');
       setActivos(data.activos);
       setGlpiUser(data.user);
       setEmail(data.user.email || '');
     } catch (err) {
+      console.error('❌ Error en búsqueda:', err);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -103,9 +106,8 @@ function Dashboard({ user, onLogout }) {
               if (!glpiUser) return setError('Primero busca un usuario GLPI');
               try {
                 setError('');
-                const res = await fetch('/api/pdf', {
+                const res = await apiRequest('/pdf', {
                   method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({
                     userId: user.id,
                     glpiSearch: search,
@@ -133,9 +135,8 @@ function Dashboard({ user, onLogout }) {
               if (!glpiUser) return setError('Primero busca un usuario GLPI');
               try {
                 setError('');
-                const res = await fetch('/api/email/send-pdf', {
+                const res = await apiRequest('/email/send-pdf', {
                   method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({
                     userId: user.id,
                     glpiSearch: search,

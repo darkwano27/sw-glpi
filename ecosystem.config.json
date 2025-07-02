@@ -1,0 +1,21 @@
+{
+  "apps": [
+    {
+      "name": "firma-glpi-backend",
+      "script": "./backend/index.js",
+      "cwd": "/opt/firma-glpi-web",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 3001
+      },
+      "instances": 1,
+      "exec_mode": "cluster",
+      "watch": false,
+      "max_memory_restart": "500M",
+      "error_file": "/var/log/pm2/firma-glpi-backend-error.log",
+      "out_file": "/var/log/pm2/firma-glpi-backend-out.log",
+      "log_file": "/var/log/pm2/firma-glpi-backend.log",
+      "time": true
+    }
+  ]
+}

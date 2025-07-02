@@ -1,3 +1,5 @@
+// Archivo comentado: No usar. Ver 'routes/activos.js' para la versión activa.
+/*
 // backend/routes/activos.js
 const express = require('express');
 const router = express.Router();
@@ -50,7 +52,8 @@ module.exports = (glpiDB) => {
           id: 1,
           name: search.toLowerCase(),
           realname: `Usuario ${search}`,
-          email: `${search.toLowerCase()}@empresa.com`
+          email: `${search.toLowerCase()}@empresa.com`,
+          registration_number: '0000'
         },
         activos: [
           {
@@ -75,3 +78,4 @@ module.exports = (glpiDB) => {
 
   return router;
 };
+*/

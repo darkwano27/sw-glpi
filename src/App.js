@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import AdminDashboard from './components/AdminDashboard';
+import { apiRequest } from './config/api';
 import './App.css';
 
 function App() {
@@ -11,9 +12,8 @@ function App() {
 
   const handleLogin = async ({ email, password }) => {
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await apiRequest('/auth/login', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
       });
       
